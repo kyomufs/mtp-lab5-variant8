@@ -89,6 +89,10 @@ test_module_imports_without_tkinter (test_file_dialog.ChooseFileTests.test_modul
 The module imports headless and exposes its builder. ... ok
 test_returns_path_from_injected_dialog (test_file_dialog.ChooseFileTests.test_returns_path_from_injected_dialog)
 A path returned by the dialog is passed through. ... ok
+test_every_module_imports (test_headless_imports.HeadlessImportTests.test_every_module_imports)
+Each module of the package loads on a headless machine. ... ok
+test_toolkits_stay_unimported (test_headless_imports.HeadlessImportTests.test_toolkits_stay_unimported)
+No test triggered an eager tkinter or PyQt5 import. ... ok
 test_empty_sequence_always_returns_none (test_listbox_app.SelectedItemTests.test_empty_sequence_always_returns_none)
 Any index on an empty sequence is out of range. ... ok
 test_existing_index_returns_element (test_listbox_app.SelectedItemTests.test_existing_index_returns_element)
@@ -131,14 +135,14 @@ test_qt_is_available_and_builder_callable (test_pyqt_hello.PyqtHelloTests.test_q
 With PyQt5 installed the spec resolves and the API works. ... skipped 'PyQt5 is not installed'
 
 ----------------------------------------------------------------------
-Ran 23 tests in 0.002s
+Ran 25 tests in 0.002s
 
 OK (skipped=1)
 ```
 
 - Прогон с установленным PyQt5
   (`uv run --with flake8 --with PyQt5 python -m unittest discover -s tests -v`):
-  те же 23 теста, `OK` без skipped.
+  те же 25 тестов, `OK` без skipped.
 
 - Стиль (`uv run --with flake8 flake8 lab5 tests`) — замечаний нет,
   пустой вывод, код возврата 0:
